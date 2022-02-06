@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&display=swap");
+
+:root {
+  /* font */
+  --font-default: sans-serif;
+  --font-do-hyeon: "Do Hyeon", var(--font-default);
+  --font-jua: "Jua", var(--font-default);
+
+  /* color */
+  --color-white: #f0f4f5;
+  --color-main-blue: cadetblue;
+  --color-drak-blue: rgb(60, 101, 102);
+  --color-main-orange: coral;
+}
+
+* {
+  font-family: var(--font-do-hyeon);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-main-blue);
+  padding: 8px 12px;
+  height: 6vh;
+}
+
+.navbar_logo {
+  font-size: 1.5rem;
+}
+
+.navbar_logo i {
+  color: var(--color-main-orange);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.navbar_menu {
+  display: flex;
+  list-style: none;
+  font-size: 1.25rem;
+}
+
+.navbar_menu li {
+  padding: 8px 12px;
+}
+
+.navbar_menu li:hover {
+  padding: 8px 12px;
+  background-color: var(--color-main-orange);
+  border-radius: 4px;
+}
+
+.navbar_toggle {
+  position: absolute;
+  right: 16px;
+  top: 13px;
+  font-size: 24px;
+  color: var(--color-main-orange);
+  display: none;
+}
+
+.navbar_search_box {
+  display: flex;
+  border-radius: 20px;
+  outline: 0;
+  border: 3px solid var(--color-drak-blue);
+  color: gray;
+  height: 1.25em;
+  background-color: var(--color-white);
+  padding: 0 4px;
+}
+
+.navbar_search_box input {
+  outline: 0;
+  border: 0;
+  background: none;
+  color: gray;
+}
+
+.navbar_search_box button {
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+  padding: 0;
+  transform: translateY(7.5%);
+}
+
+.navbar_search_box button:hover {
+  color: var(--color-drak-blue);
+}
+
+.navbar_sns {
+  color: var(--color-white);
+  display: none;
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.navbar_sns li {
+  padding: 8px 8px;
+}
+
+.main {
+  height: 150vh;
+}
+
+@media screen and (max-width: 625px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+    height: 6vh;
+  }
+
+  .navbar_menu {
+    display: none;
+    width: 100%;
+    overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar_search_box {
+    display: none;
+  }
+
+  .navbar_menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar_sns {
+    width: 100%;
+    justify-content: center;
+    display: none;
+
+    padding-top: 10px;
+    border-top: 4px var(--color-drak-blue) solid;
+  }
+
+  .navbar_toggle {
+    display: block;
+  }
+
+  .navbar.active {
+    height: 22vh;
+  }
+
+  .navbar_menu.active,
+  .navbar_sns.active {
+    display: flex;
+  }
+}

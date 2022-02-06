@@ -1,0 +1,36 @@
+class wecom extends HTMLElement {
+  connectedCallback() {
+    const logo_icon_class = this.getAttribute("icon-class");
+    const logo_title = this.getAttribute("title");
+    const logo_link = this.getAttribute("link");
+
+    var main_menu = ""
+    
+    const menu = this.innerHTML;
+    const re = /\<a.*\>.*\<\/a\>/g;
+    var str = re.exec(menu);
+    while(str) {
+      main_menu += `<li>${str[0]}</li>`
+      str = re.exec(menu);
+    }
+
+
+    this.attachShadow({mode : 'open'});
+    // this.shadowRoot.innerHTML = ``
+//       logo icon_class, title, link
+//       innerHTML-> menu text
+//       sns icons, links
+
+
+  }
+}
+
+customElements.define('custom-input', wecom);
+
+  <custom-input icon-class="fab fa-accusoft" title="HAHA" link="#">
+    <a href="#">first</a>
+    <a href="#">second</a>
+    <a href="#">third</a>
+    <a href="#">forth</a>
+    <a href="#">fifth</a>
+  </custom-input>
